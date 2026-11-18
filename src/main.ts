@@ -114,11 +114,12 @@ view.start((dt) => {
   const playing = session.lobby.phase === 'play' || session.lobby.phase === 'end'
   view.sync(snapshot, !session.isHost && playing, playing ? session.lobby.role : null)
   paint(nodes, session.lobby, snapshot, landscape)
-  if (session.lobby.phase === 'play' && session.lobby.role) {
-    controls.setExtra(session.lobby.role === 'bubu' ? 'dash' : 'ping', true)
-    const verbKey = snapshot.labels[session.lobby.role] ?? ''
+  const role = session.lobby.role
+  const hands = role ? snapshot.players[role].slots.length : 0
+  controls.setSwap(session.lobby.phase === 'play' && hands >= 2)
+  if (session.lobby.phase === 'play' && role) {
+    controls.setExtra(role === 'bubu' ? 'dash' : 'ping', true)
+    const verbKey = snapshot.labels[role] ?? ''
     controls.setAction(verbKey)
-    const slots = snapshot.players[session.lobby.role].slots.length
-    controls.setSwap(slots >= 2)
   }
 })

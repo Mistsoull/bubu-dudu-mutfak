@@ -2,26 +2,24 @@ import type { Input } from '../sim/types.ts'
 import { t } from '../i18n.ts'
 import { IDLE } from '../sim/types.ts'
 
-const stroke = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'
-
 function icon(body: string) {
-  return `<svg viewBox="0 0 24 24" aria-hidden="true" ${stroke}>${body}</svg>`
+  return `<svg viewBox="0 0 24 24" aria-hidden="true">${body}</svg>`
 }
 
 const ICONS: Record<string, string> = {
-  take: icon('<path d="M12 3v11"/><path d="M8 10l4 4 4-4"/><path d="M5 21h14"/>'),
-  drop: icon('<path d="M12 14V3"/><path d="M8 7l4-4 4 4"/><path d="M5 21h14"/>'),
-  chop: icon('<path d="M4 20L15 5"/><path d="M14 6l5 2-3 4"/>'),
-  cook: icon('<path d="M12 21c4 0 6-3 6-6 0-4-3-5-3-8 0 3-2 4-3 4s-3-1-3-4c0 3-3 4-3 8 0 3 2 6 6 6z"/>'),
-  plate: icon('<ellipse cx="12" cy="13" rx="8" ry="4"/><ellipse cx="12" cy="13" rx="4" ry="2"/>'),
-  mix: icon('<path d="M12 4v6"/><circle cx="12" cy="15" r="5"/><path d="M9 15h6"/>'),
-  serve: icon('<path d="M6 16a6 6 0 0 1 12 0"/><path d="M5 16h14"/><path d="M12 16v4"/><path d="M9 20h6"/>'),
-  wash: icon('<path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/>'),
-  wait: icon('<circle cx="12" cy="13" r="7"/><path d="M12 10v4l3 2"/>'),
-  dash: icon('<path d="M13 3L5 14h7l-1 7 8-11h-7l1-7z"/>'),
-  ping: icon('<path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2"/>'),
-  swap: icon('<path d="M7 7h11l-3-3"/><path d="M17 17H6l3 3"/>'),
-  quit: icon('<path d="M6 6l12 12"/><path d="M18 6L6 18"/>'),
+  take: icon('<rect x="7" y="11" width="10" height="8" rx="2" fill="currentColor"/><path d="M12 11V3M8.5 6.2 12 2.8l3.5 3.4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'),
+  drop: icon('<rect x="7" y="3" width="10" height="8" rx="2" fill="currentColor"/><path d="M12 11v9M8.5 16.4 12 19.8l3.5-3.4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'),
+  chop: icon('<path fill="currentColor" d="M14.2 2.2 21 4.4l-8.6 12.2-3.4-.8z"/><path d="M3.5 20.5c2.2-.8 4.2-.6 6.2.4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>'),
+  cook: icon('<path fill="currentColor" d="M12 1.8c.8 3.4-2.2 4.6-2.2 7.6a4.4 4.4 0 0 0 8.8 0c0-2.2-1.2-3.4-1.2-5.4-1.8 1.8-2 3.6-2.8 3.6.8-2.8-.2-4.8-2.6-5.8z"/>'),
+  plate: icon('<path fill="currentColor" fill-rule="evenodd" d="M12 7.2c5.8 0 10 2.6 10 5.8s-4.2 5.8-10 5.8S2 16.2 2 13 6.2 7.2 12 7.2zm0 3.2c2.6 0 4.6.9 4.6 2.2S14.6 14.8 12 14.8 7.4 13.9 7.4 12.6 9.4 10.4 12 10.4z"/>'),
+  mix: icon('<path fill="currentColor" d="M4.5 9.5h15L17.6 18a5.2 5.2 0 0 1-11.2 0z"/><path d="M12 2.5v6.2M9.4 4.6 12 2.2l2.6 2.4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>'),
+  serve: icon('<path fill="currentColor" d="M6 15.2a6 6 0 0 1 12 0z"/><rect x="4" y="15" width="16" height="2.6" rx="1.2" fill="currentColor"/><circle cx="12" cy="7.2" r="1.5" fill="currentColor"/><rect x="10.8" y="17.6" width="2.4" height="3.2" rx="1" fill="currentColor"/>'),
+  wash: icon('<path fill="currentColor" d="M12 2.2s6.4 7.2 6.4 11.2a6.4 6.4 0 0 1-12.8 0C5.6 9.4 12 2.2 12 2.2z"/>'),
+  wait: icon('<circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M12 8v4.4l3 1.8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'),
+  dash: icon('<path fill="currentColor" d="M3 6.2 11 12 3 17.8zM12 6.2 20 12l-8 5.8z"/>'),
+  ping: icon('<path fill="currentColor" d="M4.2 2.6 20.4 11l-7.2 1.6L11.2 20z"/>'),
+  swap: icon('<rect x="2.2" y="3.2" width="8" height="7" rx="1.8" fill="currentColor"/><rect x="13.8" y="13.8" width="8" height="7" rx="1.8" fill="currentColor"/><path d="M11 6.4h6.2L15.2 4.2l1.6-1.6 4.2 4.2-4.2 4.2-1.6-1.6 2-1.8H11zM13 17.6H6.8l2-2.2-1.6-1.6-4.2 4.2 4.2 4.2 1.6-1.6-2-1.8H13z" fill="currentColor"/>'),
+  quit: icon('<path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>'),
 }
 
 export interface Controls {
@@ -108,6 +106,7 @@ export function createControls(
   })
 
   swap.innerHTML = ICONS.swap ?? ''
+  swap.disabled = true
   quit.innerHTML = ICONS.quit ?? ''
 
   return {
