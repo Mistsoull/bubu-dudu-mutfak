@@ -61,7 +61,7 @@ export function paint(nodes: HudNodes, lobby: Lobby, snapshot: Snapshot, landsca
   const time = Math.ceil(snapshot.orderTime)
   nodes.order.textContent = snapshot.phase === 'end'
     ? t('order.done')
-    : `${t(snapshot.orderName)}  ${count} / 4  ${time} ${t('unit.sec')}`
+    : `${t(snapshot.orderName)} ${count}/4 ${time}${t('unit.sec')}`
   nodes.prompt.textContent = t(snapshot.prompt)
   nodes.love.style.width = `${snapshot.harmony}%`
   nodes.chaos.style.width = `${snapshot.chaos}%`

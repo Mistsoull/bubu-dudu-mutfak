@@ -84,9 +84,21 @@ export function createView(canvas: HTMLCanvasElement): View {
   resize()
 
   let shown = false
+  let framed = false
+  const focus = new THREE.Vector3(8, 0, 6.2)
   const sync = (snapshot: Snapshot, remoteSmooth: boolean, local: Role | null) => {
     moveActor(bubu, snapshot.players.bubu, snapshot.t, 0, remoteSmooth && shown && local !== 'bubu')
     moveActor(dudu, snapshot.players.dudu, snapshot.t, 1.4, remoteSmooth && shown && local !== 'dudu')
+    const player = local ? snapshot.players[local] : null
+    const goalX = player ? Math.min(13.2, Math.max(2.8, player.x)) : 8
+    const goalZ = player ? Math.min(11.2, Math.max(2.6, player.z)) : 6.2
+    const height = player ? 12.5 : 18
+    const back = player ? 9.6 : 13.8
+    if (!framed || !player) focus.set(goalX, 0, goalZ)
+    else focus.lerp(new THREE.Vector3(goalX, 0, goalZ), 0.12)
+    camera.position.set(focus.x, height, focus.z + back)
+    camera.lookAt(focus.x, 0, focus.z)
+    framed = true
     used = 0
     const bubuHold = bubu.getObjectByName('hold')
     const duduHold = dudu.getObjectByName('hold')

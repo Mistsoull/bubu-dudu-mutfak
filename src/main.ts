@@ -13,10 +13,11 @@ const knob = document.querySelector<HTMLElement>('#knob')
 const act = document.querySelector<HTMLButtonElement>('#act')
 const extra = document.querySelector<HTMLButtonElement>('#extra')
 const swap = document.querySelector<HTMLButtonElement>('#swap')
-if (!canvas || !stick || !knob || !act || !extra || !swap) throw new Error('ekran kurulamadı')
+const quit = document.querySelector<HTMLButtonElement>('#quit')
+if (!canvas || !stick || !knob || !act || !extra || !swap || !quit) throw new Error('ekran kurulamadı')
 
 const view = createView(canvas)
-const controls = createControls(stick, knob, act, extra, swap)
+const controls = createControls(stick, knob, act, extra, swap, quit)
 const session = createSession()
 
 const nodes: HudNodes = {
@@ -116,6 +117,8 @@ view.start((dt) => {
   if (session.lobby.phase === 'play' && session.lobby.role) {
     controls.setExtra(session.lobby.role === 'bubu' ? 'dash' : 'ping', true)
     const verbKey = snapshot.labels[session.lobby.role] ?? ''
-    controls.setAction(verbKey ? t(verbKey) : '')
+    controls.setAction(verbKey)
+    const slots = snapshot.players[session.lobby.role].slots.length
+    controls.setSwap(slots >= 2)
   }
 })
