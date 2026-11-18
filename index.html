@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6e2c0">
+  <title>Bubu (Meli) ve Dudu (Ugur) Mutfak</title>
+</head>
+<body>
+  <div id="app">
+    <canvas id="view"></canvas>
+    <div id="turn" data-i18n="turn">Telefonu yan çevir</div>
+    <header id="hud" hidden>
+      <div class="hud-row">
+        <p id="who"></p>
+        <p id="order"></p>
+      </div>
+      <p id="prompt"></p>
+      <div class="meter"><span data-i18n="meter.harmony">Uyum</span><div class="track"><div id="love"></div></div></div>
+      <div class="meter"><span data-i18n="meter.chaos">Kaos</span><div class="track"><div id="chaos"></div></div></div>
+    </header>
+    <section id="lobby">
+      <div id="home">
+        <h1 data-i18n="lobby.title">Bubu (Meli) & Dudu (Ugur)</h1>
+        <p data-i18n="lobby.tagline">Aynı ev. İkiniz de toplar, ikiniz de pişirir.</p>
+        <button id="host" class="go" type="button" data-i18n="btn.host">Oda aç</button>
+        <form id="join-form">
+          <label for="code" data-i18n="label.code">Oda kodu</label>
+          <div class="row">
+            <input id="code" inputmode="numeric" maxlength="6" autocomplete="off" placeholder="6 hane" data-i18n-placeholder="ph.code">
+            <button class="go alt" type="submit" data-i18n="btn.join">Katıl</button>
+          </div>
+        </form>
+        <p id="error" class="error" hidden></p>
+      </div>
+      <div id="host-box" hidden>
+        <h2 data-i18n="host.title">Oda hazır</h2>
+        <p data-i18n="host.share">Bu kodu diğer telefona yaz.</p>
+        <p id="room-code" class="code"></p>
+        <button id="copy" class="texty" type="button" data-i18n="btn.copy">Kodu kopyala</button>
+        <p data-i18n="host.wait">Partner bekleniyor.</p>
+        <button id="cancel" class="texty" type="button" data-i18n="btn.cancel">Vazgeç</button>
+      </div>
+      <div id="joining" hidden>
+        <h2 data-i18n="join.title">Bağlanıyor</h2>
+        <p data-i18n="join.body">Odaya bağlanılıyor.</p>
+        <button id="cancel-join" class="texty" type="button" data-i18n="btn.cancel">Vazgeç</button>
+      </div>
+      <div id="role-box" hidden>
+        <h2 data-i18n="role.title">Rolünü seç</h2>
+        <p data-i18n="role.body">İkiniz farklı bir ayı olun.</p>
+        <div class="row">
+          <button id="pick-bubu" class="go alt" type="button">Bubu (Meli)</button>
+          <button id="pick-dudu" class="go alt" type="button">Dudu (Ugur)</button>
+        </div>
+        <p id="role-status"></p>
+        <button id="ready" class="go" type="button" data-i18n="btn.ready">Hazırım</button>
+        <button id="leave-role" class="texty" type="button" data-i18n="btn.leave">Odadan çık</button>
+      </div>
+    </section>
+    <section id="end" hidden>
+      <h2 id="end-title"></h2>
+      <p id="end-text"></p>
+      <button id="again" class="go" type="button" data-i18n="btn.again">Yeniden oyna</button>
+    </section>
+    <section id="down" hidden>
+      <h2 data-i18n="down.title">Bağlantı koptu</h2>
+      <p data-i18n="down.body">Yeni bir oda açıp kodu tekrar paylaşın.</p>
+      <button id="new-room" class="go" type="button" data-i18n="btn.newRoom">Yeni oda</button>
+    </section>
+    <div id="controls" hidden>
+      <div id="stick" aria-label="Yürüyüş" data-i18n-aria="aria.move"><div id="knob"></div></div>
+      <div class="actions">
+        <button id="swap" type="button" data-i18n="btn.swap">Değiştir</button>
+        <button id="extra" type="button">Koş</button>
+        <button id="act" type="button">Al</button>
+        <button id="quit" class="texty" type="button" data-i18n="btn.quit">Çık</button>
+      </div>
+    </div>
+    <div id="lang">
+      <button type="button" data-lang="tr">TR</button>
+      <button type="button" data-lang="de">DE</button>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
