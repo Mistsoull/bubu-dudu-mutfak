@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f6e2c0">
   <title>Bubu (Meli) ve Dudu (Ugur) Mutfak</title>
-  <script type="module" crossorigin src="./assets/index-DMhy87h2.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-D_YzEyT7.css">
+  <script type="module" crossorigin src="./assets/index-CM8aF893.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-LkGvd2Gq.css">
 </head>
 <body>
   <div id="app">
     <canvas id="view"></canvas>
     <div id="turn" data-i18n="turn">Telefonu yan çevir</div>
     <header id="hud" hidden>
-      <div class="hud-row">
-        <p id="who"></p>
-        <p id="order"></p>
-      </div>
+      <p id="who" hidden></p>
+      <p id="order"></p>
       <p id="prompt"></p>
-      <div class="meter"><span data-i18n="meter.harmony">Uyum</span><div class="track"><div id="love"></div></div></div>
-      <div class="meter"><span data-i18n="meter.chaos">Kaos</span><div class="track"><div id="chaos"></div></div></div>
+      <div class="meters">
+        <div class="track"><div id="love"></div></div>
+        <div class="track"><div id="chaos"></div></div>
+      </div>
     </header>
     <section id="lobby">
       <div id="home">
@@ -73,10 +73,10 @@
     <div id="controls" hidden>
       <div id="stick" aria-label="Yürüyüş" data-i18n-aria="aria.move"><div id="knob"></div></div>
       <div class="actions">
-        <button id="swap" type="button" data-i18n="btn.swap">Değiştir</button>
-        <button id="extra" type="button">Koş</button>
-        <button id="act" type="button">Al</button>
-        <button id="quit" class="texty" type="button" data-i18n="btn.quit">Çık</button>
+        <button id="swap" class="round" type="button"></button>
+        <button id="extra" class="round" type="button"></button>
+        <button id="act" class="round" type="button"></button>
+        <button id="quit" class="round tiny" type="button"></button>
       </div>
     </div>
     <div id="lang">
