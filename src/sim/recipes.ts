@@ -49,7 +49,7 @@ export function pickEnding(harmony: number, chaos: number): EndingId {
 export const ENDINGS: Record<EndingId, { title: string; text: string }> = {
   uyumlu: {
     title: 'Aynı ritim',
-    text: 'Tabaklar zamanında gitti. Bubu (Meli) yetiştirdi, Dudu (Ugur) yaktırmadı. Mutfak sakin kapandı.',
+    text: 'Tabaklar zamanında gitti. Bubu yetiştirdi, Dudu yaktırmadı. Mutfak sakin kapandı.',
   },
   kaos: {
     title: 'Güzel bir karışıklık',

@@ -1,11 +1,11 @@
 export type Lang = 'tr' | 'de'
 
 const tr = {
-  'app.title': 'Bubu (Meli) ve Dudu (Ugur) Mutfak',
+  'app.title': 'Bubu ve Dudu Mutfak',
   turn: 'Telefonu yan çevir',
   'meter.harmony': 'Uyum',
   'meter.chaos': 'Kaos',
-  'lobby.title': 'Bubu (Meli) & Dudu (Ugur)',
+  'lobby.title': 'Bubu & Dudu',
   'lobby.tagline': 'Aynı ev. İkiniz de toplar, ikiniz de pişirir.',
   'btn.host': 'Oda aç',
   'btn.opening': 'Açılıyor',
@@ -32,8 +32,8 @@ const tr = {
   'btn.newRoom': 'Yeni oda',
   'btn.swap': 'Değiştir',
   'btn.quit': 'Çık',
-  'who.bubu': "Sen Bubu (Meli)'sun",
-  'who.dudu': "Sen Dudu (Ugur)'sun",
+  'who.bubu': "Sen Bubu'sun",
+  'who.dudu': "Sen Dudu'sun",
   'order.done': 'Servis bitti',
   'order.pancake': 'Çilekli pankek',
   'order.toast': 'Çay ve tost',
@@ -83,7 +83,7 @@ const tr = {
   'station.plate': 'Tabak',
   'station.bell': 'Servis',
   'ending.uyumlu.title': 'Aynı ritim',
-  'ending.uyumlu.text': 'Tabaklar zamanında gitti. Bubu (Meli) yetiştirdi, Dudu (Ugur) yaktırmadı. Mutfak sakin kapandı.',
+  'ending.uyumlu.text': 'Tabaklar zamanında gitti. Bubu yetiştirdi, Dudu yaktırmadı. Mutfak sakin kapandı.',
   'ending.kaos.title': 'Güzel bir karışıklık',
   'ending.kaos.text': 'Un uçtu, bir göz yandı, yine de zil çaldı. Bu mutfakta karışıklık da bir tür kahvaltı.',
   'ending.orta.title': 'Tam ikinize göre',
@@ -92,11 +92,11 @@ const tr = {
 }
 
 const de: Record<keyof typeof tr, string> = {
-  'app.title': 'Bubu (Meli) und Dudu (Ugur) Küche',
+  'app.title': 'Bubu und Dudu Küche',
   turn: 'Dreh das Telefon quer',
   'meter.harmony': 'Einklang',
   'meter.chaos': 'Chaos',
-  'lobby.title': 'Bubu (Meli) & Dudu (Ugur)',
+  'lobby.title': 'Bubu & Dudu',
   'lobby.tagline': 'Dasselbe Haus. Ihr sammelt beide, ihr kocht beide.',
   'btn.host': 'Raum öffnen',
   'btn.opening': 'Öffnet',
@@ -123,8 +123,8 @@ const de: Record<keyof typeof tr, string> = {
   'btn.newRoom': 'Neuer Raum',
   'btn.swap': 'Tauschen',
   'btn.quit': 'Raus',
-  'who.bubu': 'Du bist Bubu (Meli)',
-  'who.dudu': 'Du bist Dudu (Ugur)',
+  'who.bubu': 'Du bist Bubu',
+  'who.dudu': 'Du bist Dudu',
   'order.done': 'Service vorbei',
   'order.pancake': 'Erdbeerpfannkuchen',
   'order.toast': 'Tee und Toast',
@@ -174,7 +174,7 @@ const de: Record<keyof typeof tr, string> = {
   'station.plate': 'Teller',
   'station.bell': 'Klingel',
   'ending.uyumlu.title': 'Gleicher Takt',
-  'ending.uyumlu.text': 'Die Teller kamen pünktlich. Bubu (Meli) hat nachgelegt, Dudu (Ugur) hat nichts anbrennen lassen. Die Küche ging ruhig zu.',
+  'ending.uyumlu.text': 'Die Teller kamen pünktlich. Bubu hat nachgelegt, Dudu hat nichts anbrennen lassen. Die Küche ging ruhig zu.',
   'ending.kaos.title': 'Ein schönes Durcheinander',
   'ending.kaos.text': 'Mehl flog, eine Platte brannte an, und die Glocke klingelte trotzdem. In dieser Küche ist Chaos auch eine Art Frühstück.',
   'ending.orta.title': 'Genau wie ihr zwei',
@@ -241,10 +241,10 @@ export function statusLine(code: string): string {
   if (!code) return ''
   if (code === 'status.waiting') return t(code)
   if (code.startsWith('status.ready.')) {
-    return t('status.ready', { name: code.endsWith('bubu') ? 'Bubu (Meli)' : 'Dudu (Ugur)' })
+    return t('status.ready', { name: code.endsWith('bubu') ? 'Bubu' : 'Dudu' })
   }
   if (code.startsWith('status.picked.')) {
-    return t('status.picked', { name: code.endsWith('bubu') ? 'Bubu (Meli)' : 'Dudu (Ugur)' })
+    return t('status.picked', { name: code.endsWith('bubu') ? 'Bubu' : 'Dudu' })
   }
   return t(code)
 }
